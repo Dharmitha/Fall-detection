@@ -26,8 +26,9 @@ Experiemnt 5: Balanced combined dataset with only fall and non-fall as label
 
 Experiemnt 6: Balanced selected dataset with only fall and non-fall as label
 
-Collaborator:
-Sazia Mahfuz
 
 References:
 Vavoulas G., Chatzaki C., Malliotakis T., Pediaditis M. and Tsiknakis M.., "The MobiAct Dataset: Recognition of Activities of Daily Living using Smartphones.," In Proceedings of the International Conference on Information and Communication Technologies for Ageing Well and e-Health - Volume 1, pp. 143-151, 2016.
+
+
+Collaborator : Sazia Mahfuz
