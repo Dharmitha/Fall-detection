@@ -9,6 +9,7 @@ The MobiAct dataset contains labeled information about four kinds of simulated f
 •	BSC: back-sitting-chair (fall backward while trying to sit on a chair)
 
 A total of 58 Features are extracted from raw accelerometer values. They are further normalized using min-max scaling algorithm. A feature selection algorithm called Relief is used to select the most imprtant features. A total of six experiments is performed using the features generated and selected by above methods.
+
 Experiment 1: 58 features, 4 kinds of falls, 2 kinds of activities
 Experiment 2: 58 features, 2 kinds of falls, 2 kinds of activities
 Experiment 3: 10 features, 4 kinds of falls, 2 kinds of activities
@@ -16,3 +17,8 @@ Experiemnt 4: 10 features, 2 kinds of falls, 2 kinds of activities
 Experiemnt 5: Balanced combined dataset with only fall and non-fall as label
 Experiemnt 6: Balanced selected dataset with only fall and non-fall as label
 
+Collaborator:
+Sazia Mahfuz
+
+References:
+Vavoulas G., Chatzaki C., Malliotakis T., Pediaditis M. and Tsiknakis M.., "The MobiAct Dataset: Recognition of Activities of Daily Living using Smartphones.," In Proceedings of the International Conference on Information and Communication Technologies for Ageing Well and e-Health - Volume 1, pp. 143-151, 2016.
