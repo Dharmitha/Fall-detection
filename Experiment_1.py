@@ -5,39 +5,40 @@ Created on Sat Mar 17 00:21:10 2018
 @author: Admin
 """
 
-from keras.models import Sequential
-from keras.layers import LSTM
-from keras.layers import Dense, Dropout
-from numpy import genfromtxt
-import numpy
 import codecs
 import csv
+import numpy
+
+
+from keras.models import Sequential
+from keras.layers import LSTM, Dense, Dropout
+from keras.utils import np_utils
 from sklearn.metrics import confusion_matrix,roc_auc_score,roc_curve,auc,accuracy_score
 from sklearn.metrics import precision_score,recall_score,classification_report
 import matplotlib.pyplot as plt
-from keras.utils import np_utils
-import numpy as np
 
 
 
 
-# create a sequence classification instance
+# Create a sequence classification instance
 def get_sequence(n_timesteps,time):
     x = [data[index] for index in range((time*10)+1 ,(time*10)+10+1)]
     x = numpy.delete(x, (data.shape[1]-1), axis=1)
     x= numpy.array(x)
     y = [Y[index] for index in range((time*10) ,(time*10)+10)]
     y=numpy.array(y)
+
     # reshape input and output data to be suitable for LSTMs
     X = x.reshape(1, n_timesteps, (data.shape[1]-1))
     y = y.reshape(1, n_timesteps, y.shape[1])
     return X, y
 
 
-
-data = genfromtxt('Experiment1.csv', delimiter=',')
-m =[data[i][-1] for i in range(1,7671)]
-Y = np_utils.to_categorical(m)
+# Load data from the csv file
+csv_data = numpy.genfromtxt('Experiment1.csv', delimiter=',')
+# Extract the output label and convert them to binary class matrix
+output_data =[csv_data[i][-1] for i in range(1,7671)]
+Y = np_utils.to_categorical(output_data)
 
 
 # define problem properties
@@ -47,8 +48,6 @@ model = Sequential()
 model.add(LSTM(30,input_shape = (None, (data.shape[1]-1)),return_sequences=True))
 model.add(Dropout(0.25))
 model.add(Dense(6, activation='softmax'))
-#model.add(Dense(1, activation='sigmoid'))
-
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['acc'])
 
 print(model.summary())
